@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Exemplo Odonto — Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --azul:#1a3a5c;
+  --azul-m:#2a5298;
+  --azul-l:#e8f0fb;
+  --branco:#ffffff;
+  --creme:#f8f7f4;
+  --cinza:#6b7280;
+  --texto:#1c1c1e;
+  --acento:#3b82f6;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--texto);background:var(--branco);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(26,58,92,0.08)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--azul);font-weight:600}
+.nav-cta{background:var(--azul);color:var(--branco);padding:.5rem 1.25rem;border-radius:50px;font-size:.85rem;font-weight:500;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--azul-m)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:6rem 2rem 4rem;max-width:1100px;margin:0 auto;gap:3rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--azul-l);color:var(--azul);font-size:.8rem;font-weight:500;padding:.4rem 1rem;border-radius:50px;margin-bottom:1.5rem}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--acento)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.2;color:var(--azul);margin-bottom:1.25rem}
+h1 em{font-style:normal;color:var(--acento)}
+.hero-sub{font-size:1rem;color:var(--cinza);line-height:1.7;margin-bottom:2rem;font-weight:300;max-width:440px}
+.hero-ctas{display:flex;flex-direction:column;gap:.75rem}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--azul);color:var(--branco);padding:1rem 2rem;border-radius:50px;font-size:1rem;font-weight:500;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(26,58,92,.2)}
+.btn-primary:hover{background:var(--azul-m);transform:translateY(-1px);box-shadow:0 6px 24px rgba(26,58,92,.3)}
+.btn-primary svg{width:20px;height:20px}
+.hero-trust{display:flex;align-items:center;gap:.75rem;font-size:.8rem;color:var(--cinza)}
+.stars{color:#f59e0b;letter-spacing:1px}
+.hero-img{position:relative}
+.hero-img-inner{width:100%;aspect-ratio:4/5;border-radius:2rem;background:linear-gradient(135deg,var(--azul-l) 0%,#c7d9f5 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-img-inner svg{width:60%;opacity:.15}
+.hero-card{position:absolute;bottom:2rem;left:-2rem;background:var(--branco);border-radius:1rem;padding:1rem 1.25rem;box-shadow:0 8px 32px rgba(0,0,0,.1);display:flex;align-items:center;gap:.75rem;min-width:200px}
+.hero-card-icon{width:40px;height:40px;border-radius:.75rem;background:var(--azul-l);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:1.2rem;flex-shrink:0}
+.hero-card-label{font-size:.7rem;color:var(--cinza)}
+.hero-card-value{font-size:.95rem;font-weight:500;color:var(--texto)}
+
+/* DORES */
+.dores{background:var(--azul);color:var(--branco);padding:4rem 2rem}
+.dores-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--acento);margin-bottom:.75rem}
+.dores h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:2.5rem;color:var(--branco)}
+.dores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.dor-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:1rem;padding:1.5rem}
+.dor-num{font-family:'Playfair Display',serif;font-size:2rem;color:rgba(255,255,255,.15);margin-bottom:.5rem}
+.dor-title{font-size:.95rem;font-weight:500;margin-bottom:.5rem}
+.dor-text{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6}
+
+/* SERVICOS */
+.servicos{padding:5rem 2rem;background:var(--creme)}
+.servicos-inner{max-width:1100px;margin:0 auto}
+.section-header{margin-bottom:3rem}
+.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--azul);margin-top:.5rem}
+.servicos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.servico-card{background:var(--branco);border-radius:1.25rem;padding:1.75rem;border:1px solid rgba(26,58,92,.06);transition:transform .2s,box-shadow .2s}
+.servico-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(26,58,92,.1)}
+.servico-icon{width:48px;height:48px;border-radius:.875rem;background:var(--azul-l);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.5rem}
+.servico-card h3{font-size:1rem;font-weight:500;color:var(--azul);margin-bottom:.5rem}
+.servico-card p{font-size:.85rem;color:var(--cinza);line-height:1.6}
+
+/* DIFERENCIAIS */
+.diferenciais{padding:5rem 2rem;background:var(--branco)}
+.diferenciais-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.diferenciais h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--azul);margin:.5rem 0 1.5rem}
+.dif-list{display:flex;flex-direction:column;gap:1rem}
+.dif-item{display:flex;align-items:flex-start;gap:1rem;padding:1rem;border-radius:.875rem;transition:background .2s}
+.dif-item:hover{background:var(--azul-l)}
+.dif-check{width:32px;height:32px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--branco);font-size:.85rem}
+.dif-text h4{font-size:.95rem;font-weight:500;color:var(--texto);margin-bottom:.25rem}
+.dif-text p{font-size:.82rem;color:var(--cinza);line-height:1.5}
+.dif-visual{background:linear-gradient(135deg,var(--azul-l),#d4e5f9);border-radius:2rem;padding:2.5rem;display:flex;flex-direction:column;gap:1rem}
+.dif-stat{background:var(--branco);border-radius:1rem;padding:1.25rem}
+.dif-stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--azul);font-weight:600}
+.dif-stat-label{font-size:.8rem;color:var(--cinza);margin-top:.25rem}
+
+/* DEPOIMENTOS */
+.depoimentos{padding:5rem 2rem;background:var(--creme)}
+.depoimentos-inner{max-width:1100px;margin:0 auto}
+.dep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
+.dep-card{background:var(--branco);border-radius:1.25rem;padding:1.75rem;border:1px solid rgba(26,58,92,.06)}
+.dep-stars{color:#f59e0b;font-size:.9rem;margin-bottom:1rem}
+.dep-text{font-size:.9rem;color:var(--texto);line-height:1.7;font-style:italic;margin-bottom:1.25rem}
+.dep-author{display:flex;align-items:center;gap:.75rem}
+.dep-avatar{width:40px;height:40px;border-radius:50%;background:var(--azul-l);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:500;color:var(--azul);flex-shrink:0}
+.dep-name{font-size:.875rem;font-weight:500}
+.dep-role{font-size:.75rem;color:var(--cinza)}
+
+/* CTA FINAL */
+.cta-final{padding:5rem 2rem;background:var(--azul);color:var(--branco);text-align:center}
+.cta-final h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.5rem);margin-bottom:1rem}
+.cta-final p{color:rgba(255,255,255,.7);margin-bottom:2rem;font-size:1rem;max-width:480px;margin-left:auto;margin-right:auto}
+.btn-wa{display:inline-flex;align-items:center;gap:.75rem;background:#25d366;color:var(--branco);padding:1rem 2.5rem;border-radius:50px;font-size:1rem;font-weight:500;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+.btn-wa:hover{background:#22c55e;transform:translateY(-2px)}
+.btn-wa svg{width:22px;height:22px}
+.cta-info{display:flex;justify-content:center;gap:2rem;margin-top:2.5rem;flex-wrap:wrap}
+.cta-info-item{font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:.4rem}
+
+/* WA FIXO */
+.wa-fixed{position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
+.wa-fixed:hover{transform:scale(1.1)}
+.wa-fixed svg{width:28px;height:28px;fill:var(--branco)}
+
+/* FOOTER */
+footer{background:var(--texto);color:rgba(255,255,255,.4);text-align:center;padding:1.5rem;font-size:.8rem}
+
+/* ANIMAÇÕES */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero>*{animation:fadeUp .6s ease both}
+.hero>*:nth-child(2){animation-delay:.15s}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:.875rem 1.25rem}
+  .hero{grid-template-columns:1fr;padding:5rem 1.25rem 3rem;gap:2rem}
+  .hero-img{display:none}
+  .diferenciais-inner{grid-template-columns:1fr}
+  .dif-visual{display:none}
+  .hero-ctas{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">OdontoClínica</div>
+  <a href="#agendar" class="nav-cta">Agendar consulta</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">Clínica em Goiânia · GO</div>
+    <h1>Seu sorriso merece cuidado <em>especializado</em></h1>
+    <p class="hero-sub">Atendimento odontológico completo com tecnologia moderna, ambiente acolhedor e resultados que transformam sua confiança.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/5562999999999?text=Olá! Gostaria de agendar uma consulta." class="btn-primary" id="agendar">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.845L0 24l6.335-1.502A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.803 9.803 0 01-5.003-1.368l-.36-.214-3.76.892.952-3.665-.235-.376A9.804 9.804 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+        Agendar via WhatsApp
+      </a>
+      <div class="hero-trust">
+        <span class="stars">★★★★★</span>
+        <span>+500 pacientes atendidos em Goiânia</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-img-inner">
+      <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="35" r="25" fill="#1a3a5c"/><path d="M20 80c0-16.569 13.431-30 30-30s30 13.431 30 30" fill="#1a3a5c"/></svg>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">✓</div>
+      <div>
+        <div class="hero-card-label">Próxima consulta</div>
+        <div class="hero-card-value">Hoje disponível</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dores">
+  <div class="dores-inner">
+    <div class="section-label">Por que nos escolher</div>
+    <h2>Problemas que resolvemos para você</h2>
+    <div class="dores-grid">
+      <div class="dor-card">
+        <div class="dor-num">01</div>
+        <div class="dor-title">Medo do dentista</div>
+        <div class="dor-text">Atendimento humanizado com técnicas de sedação consciente para quem tem ansiedade odontológica.</div>
+      </div>
+      <div class="dor-card">
+        <div class="dor-num">02</div>
+        <div class="dor-title">Dor de dente urgente</div>
+        <div class="dor-text">Vagas de emergência disponíveis. Entre em contato e resolva sua dor no mesmo dia.</div>
+      </div>
+      <div class="dor-card">
+        <div class="dor-num">03</div>
+        <div class="dor-title">Sorriso sem confiança</div>
+        <div class="dor-text">Clareamento, facetas e alinhamento dental para transformar seu sorriso em poucas sessões.</div>
+      </div>
+      <div class="dor-card">
+        <div class="dor-num">04</div>
+        <div class="dor-title">Dificuldade de pagamento</div>
+        <div class="dor-text">Parcelamos em até 12x sem juros. Aceitamos convênios e planos odontológicos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servicos">
+  <div class="servicos-inner">
+    <div class="section-header">
+      <div class="section-label">Especialidades</div>
+      <h2>Tudo que seu sorriso precisa</h2>
+    </div>
+    <div class="servicos-grid">
+      <div class="servico-card"><div class="servico-icon">🦷</div><h3>Clareamento dental</h3><p>Resultado em até 2 sessões. Clareamento a laser com proteção total do esmalte.</p></div>
+      <div class="servico-card"><div class="servico-icon">✨</div><h3>Facetas de porcelana</h3><p>Transformação completa do sorriso com facetas naturais e duráveis.</p></div>
+      <div class="servico-card"><div class="servico-icon">📐</div><h3>Ortodontia</h3><p>Aparelho convencional, autoligado e alinhadores transparentes.</p></div>
+      <div class="servico-card"><div class="servico-icon">🔧</div><h3>Implante dental</h3><p>Reposição de dentes com implantes de titânio de alta qualidade.</p></div>
+      <div class="servico-card"><div class="servico-icon">🛡️</div><h3>Prevenção e limpeza</h3><p>Profilaxia completa e orientações para manter sua saúde bucal.</p></div>
+      <div class="servico-card"><div class="servico-icon">🚨</div><h3>Emergências</h3><p>Dor de dente, quebrado ou perdido? Atendemos urgências no mesmo dia.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="diferenciais">
+  <div class="diferenciais-inner">
+    <div>
+      <div class="section-label">Nossos diferenciais</div>
+      <h2>Por que pacientes nos recomendam</h2>
+      <div class="dif-list">
+        <div class="dif-item"><div class="dif-check">✓</div><div class="dif-text"><h4>Tecnologia de ponta</h4><p>Equipamentos de última geração para diagnósticos precisos e tratamentos confortáveis.</p></div></div>
+        <div class="dif-item"><div class="dif-check">✓</div><div class="dif-text"><h4>Equipe especializada</h4><p>Cirurgiões-dentistas com pós-graduação e atualização contínua.</p></div></div>
+        <div class="dif-item"><div class="dif-check">✓</div><div class="dif-text"><h4>Agendamento fácil</h4><p>Marque sua consulta pelo WhatsApp em menos de 2 minutos.</p></div></div>
+        <div class="dif-item"><div class="dif-check">✓</div><div class="dif-text"><h4>Parcelamento sem juros</h4><p>Até 12x no cartão. Cuidar do seu sorriso cabe no seu orçamento.</p></div></div>
+      </div>
+    </div>
+    <div class="dif-visual">
+      <div class="dif-stat"><div class="dif-stat-num">+500</div><div class="dif-stat-label">pacientes atendidos</div></div>
+      <div class="dif-stat"><div class="dif-stat-num">5★</div><div class="dif-stat-label">avaliação média no Google</div></div>
+      <div class="dif-stat"><div class="dif-stat-num">12x</div><div class="dif-stat-label">sem juros no cartão</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="depoimentos-inner">
+    <div class="section-label">Depoimentos</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--azul);margin-top:.5rem">O que nossos pacientes dizem</h2>
+    <div class="dep-grid">
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Tinha muito medo de dentista e aqui fui super bem atendida. Fiz o clareamento e fiquei apaixonada no resultado!"</p><div class="dep-author"><div class="dep-avatar">MC</div><div><div class="dep-name">Maria C.</div><div class="dep-role">Paciente há 2 anos</div></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Fiz implante aqui e o resultado superou minhas expectativas. Profissionais excelentes e estrutura impecável."</p><div class="dep-author"><div class="dep-avatar">JR</div><div><div class="dep-name">João R.</div><div class="dep-role">Implante realizado</div></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Atendimento rápido, ambiente limpo e equipe super atenciosa. Fiz as facetas e nunca mais me envergonhei de sorrir."</p><div class="dep-author"><div class="dep-avatar">PS</div><div><div class="dep-name">Paula S.</div><div class="dep-role">Facetas de porcelana</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="contato">
+  <h2>Pronto para transformar seu sorriso?</h2>
+  <p>Agende sua avaliação gratuita agora. Resposta em menos de 5 minutos.</p>
+  <a href="https://wa.me/5562999999999?text=Olá! Vi o site e quero agendar uma avaliação gratuita." class="btn-wa">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.845L0 24l6.335-1.502A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.803 9.803 0 01-5.003-1.368l-.36-.214-3.76.892.952-3.665-.235-.376A9.804 9.804 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+    Agendar avaliação gratuita
+  </a>
+  <div class="cta-info">
+    <span class="cta-info-item">✓ Sem compromisso</span>
+    <span class="cta-info-item">✓ Resposta em 5 min</span>
+    <span class="cta-info-item">✓ Localizado em Goiânia</span>
+  </div>
+</section>
+
+<footer>© 2026 OdontoClínica Goiânia · Todos os direitos reservados</footer>
+
+<a href="https://wa.me/5562999999999?text=Olá! Gostaria de agendar uma consulta." class="wa-fixed" aria-label="Abrir WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.845L0 24l6.335-1.502A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.803 9.803 0 01-5.003-1.368l-.36-.214-3.76.892.952-3.665-.235-.376A9.804 9.804 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+</a>
+
+</body>
+</html>
